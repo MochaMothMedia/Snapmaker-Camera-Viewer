@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>U1 Cameras — Overview</title>
+<style>
+	:root { color-scheme: dark; }
+	body { margin:0; font-family:system-ui,sans-serif; background:#111; color:#eee; }
+	header { padding:10px 16px; background:#1a1a1a; border-bottom:1px solid #2a2a2a; display:flex; gap:10px; align-items:center; }
+	header h1 { font-size:15px; margin:0; }
+	button { background:#333; border:0; color:#fff; padding:6px 12px; border-radius:6px; font-size:13px; cursor:pointer; margin-left:auto; }
+	.grid { display:grid; gap:12px; padding:16px; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); }
+	.cell { background:#1a1a1a; border:1px solid #2a2a2a; border-radius:10px; overflow:hidden; }
+	.cell .bar { display:flex; align-items:center; gap:8px; padding:6px 10px; font-size:13px; border-bottom:1px solid #2a2a2a; }
+	.cell .st { margin-left:auto; font-size:12px; }
+	.ok{color:#4ade80;} .err{color:#f87171;} .wait{color:#fbbf24;}
+	.cell img { display:block; width:100%; aspect-ratio:16/9; object-fit:cover; background:#000; cursor:pointer; }
+	.empty { padding:40px; text-align:center; color:#777; }
+	/* hidden bootstrap iframes */
+	#boots iframe { position:absolute; width:1px; height:1px; left:-9999px; border:0; opacity:0; }
+</style>
+</head>
+<body>
+	<header>
+		<h1>U1 Cameras — Overview</h1>
+		<button id="settings">Settings</button>
+	</header>
+	<div id="grid" class="grid"></div>
+	<div id="boots"></div>
+	<script src="overview.js"></script>
+</body>
+</html>

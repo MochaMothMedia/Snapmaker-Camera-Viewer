@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Snapmaker U1 Camera</title>
+<style>
+	:root { color-scheme: dark; }
+	body { margin:0; font-family:system-ui,sans-serif; background:#111; color:#eee; display:flex; flex-direction:column; height:100vh; }
+	header { padding:10px 16px; background:#1a1a1a; border-bottom:1px solid #2a2a2a; display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+	header h1 { font-size:15px; margin:0 8px 0 0; }
+	select, button { background:#333; border:0; color:#fff; padding:6px 12px; border-radius:6px; font-size:13px; cursor:pointer; }
+	select { background:#222; border:1px solid #333; }
+	#status { font-size:13px; margin-left:auto; }
+	.ok{color:#4ade80;} .err{color:#f87171;} .wait{color:#fbbf24;}
+	main { flex:1; display:flex; align-items:center; justify-content:center; padding:16px; position:relative; }
+	#frame { max-width:100%; max-height:100%; border-radius:10px; border:1px solid #2a2a2a; background:#000; display:none; }
+	#placeholder { color:#777; font-size:14px; text-align:center; }
+	/* Console iframe: hidden by default, shown when toggled */
+	#consoleWrap { display:none; flex:1; }
+	#consoleWrap.show { display:flex; }
+	#console { flex:1; width:100%; border:0; background:#fff; }
+	body.console-on main { display:none; }
+	#boot { position:absolute; width:1px; height:1px; left:-9999px; top:-9999px; border:0; opacity:0; }
+</style>
+</head>
+<body>
+	<header>
+		<h1>U1 Camera</h1>
+		<select id="picker"></select>
+		<button id="prev" title="Previous">‹</button>
+		<button id="next" title="Next">›</button>
+		<button id="overview">Overview</button>
+		<button id="settings">Settings</button>
+		<button id="toggleConsole">Show console</button>
+		<span id="status" class="wait">starting…</span>
+	</header>
+	<main>
+		<img id="frame" alt="">
+		<div id="placeholder">Connecting…</div>
+	</main>
+	<div id="consoleWrap"><iframe id="console"></iframe></div>
+	<iframe id="boot" referrerpolicy="no-referrer"></iframe>
+	<script src="viewer.js"></script>
+</body>
+</html>

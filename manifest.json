@@ -1,0 +1,15 @@
+{
+	"manifest_version": 3,
+	"name": "Snapmaker U1 Camera Viewer",
+	"version": "1.0",
+	"description": "View one or more Snapmaker U1 cameras.",
+	"permissions": ["storage", "scripting"],
+	"optional_host_permissions": ["http://*/*", "ws://*/*"],
+	"content_security_policy": {
+		"extension_pages": "script-src 'self'; object-src 'self'; img-src 'self' http: https: data: blob:; frame-src http: https:; connect-src http: https: ws: wss: data: blob:"
+	},
+	"background": { "scripts": ["background.js"] },
+	"action": { "default_title": "Open U1 Camera Viewer" },
+	"options_ui": { "page": "options.html", "open_in_tab": true },
+	"browser_specific_settings": { "gecko": { "id": "{51915005-279e-4c54-87c2-a1abb7b47702}" } }
+}
