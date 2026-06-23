@@ -54,3 +54,16 @@ From this view, you can see a full size image of the printer as well as some opt
 This opens the native Snapmaker UI webview which allows you to control everything you normally would from the webview directly.
 
 ![An image of the Snapmaker UI webview with an additional bar at the top that matches the previous image.](resources/image5.png)
+
+## Contribution
+### Style Guide
+#### Indent with Tabs
+I would force 4-wide spacing even though many people like 2-wide spaces in js. FOR SOME REASON.
+But with tab-spacing, you get to configure your view in your IDE however you want.
+
+#### No Line Limit
+Forcing line wrapping creates unreadable code in the long term.
+Multiple consecutive long-lines are far easier to quickly understand than smashing together many half lines.
+If you want to limit the line length, enable word-wrap in your IDE.
+
+> More to come if I ever want to actually refactor this plugin.
