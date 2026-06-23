@@ -1,6 +1,8 @@
 # Snapmaker Camera Viewer
 #### A Firefox addon that gives you a dashboard to manage your Snapmaker U1 printers
 
+![A crude drawing of the snapmaker dragon print with a bit of stylisation.](resources/icon128.png)
+
 ## About
 This project is a simple addon which allows you to view the cameras on your Snapmaker U1 printers. You can set the IPs of each printer and view them all from a single interface. You can also view the native webview of each printer directly!
 
