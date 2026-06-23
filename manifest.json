@@ -11,5 +11,10 @@
 	"background": { "scripts": ["background.js"] },
 	"action": { "default_title": "Open U1 Camera Viewer" },
 	"options_ui": { "page": "options.html", "open_in_tab": true },
-	"browser_specific_settings": { "gecko": { "id": "{51915005-279e-4c54-87c2-a1abb7b47702}" } }
+	"browser_specific_settings": {
+		"gecko":{
+			"id": "{51915005-279e-4c54-87c2-a1abb7b47702}",
+			"data_collection_permissions": { "required": ["none"] }
+		}
+	}
 }

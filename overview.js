@@ -28,9 +28,22 @@ function buildCell(p) {
 	const cell = document.createElement('div');
 	cell.className = "cell";
 	cell.dataset.ip = p.ip;
-	cell.innerHTML =
-		`<div class="bar"><span>${p.name || p.ip}</span><span class="st wait" data-st>…</span></div>
-		 <img data-img alt="">`;
+
+	const bar = document.createElement('div');
+	bar.className = "bar";
+	const nameSpan = document.createElement('span');
+	nameSpan.textContent = p.name || p.ip;
+	const st = document.createElement('span');
+	st.className = "st wait";
+	st.dataset.st = "";
+	st.textContent = "…";
+	bar.append(nameSpan, st);
+
+	const img = document.createElement('img');
+	img.dataset.img = "";
+	img.alt = "";
+
+	cell.append(bar, img);
 	cell.querySelector('[data-img]').addEventListener('click', () => {
 		browser.storage.local.get("u1Printers").then(({ u1Printers }) => {
 			const i = (u1Printers || []).findIndex(x => x.ip === p.ip);
@@ -50,10 +63,10 @@ function setupObserver() {
 			const nowVisible = e.isIntersecting;
 			if (nowVisible && !st.visible) {
 				st.visible = true;
-				send({ type: "startWake", ip });          // resume keepalive
+				send({ type: "startWake", ip });
 			} else if (!nowVisible && st.visible) {
 				st.visible = false;
-				send({ type: "stopWake", ip });           // pause keepalive
+				send({ type: "stopWake", ip });
 				setStat(ip, "paused", "wait");
 			}
 		}

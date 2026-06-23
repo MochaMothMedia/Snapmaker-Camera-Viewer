@@ -18,7 +18,13 @@ async function init() {
 	const s = await browser.storage.local.get("u1Printers");
 	printers = s.u1Printers || [];
 	if (!printers.length) { setStatus("no printers — open Settings", "err"); placeholder.textContent = "No printers configured."; return; }
-	picker.innerHTML = printers.map((p, i) => `<option value="${i}">${p.name || p.ip}</option>`).join("");
+	picker.textContent = "";
+	printers.forEach((p, i) => {
+		const opt = document.createElement('option');
+		opt.value = String(i);
+		opt.textContent = p.name || p.ip;   // textContent: no markup interpretation
+		picker.appendChild(opt);
+	});
 	const hashIdx = parseInt(location.hash.slice(1), 10);
 	selectPrinter(Number.isInteger(hashIdx) ? hashIdx : 0);
 }
