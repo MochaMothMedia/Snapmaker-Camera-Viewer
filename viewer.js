@@ -22,7 +22,7 @@ async function init() {
 	printers.forEach((p, i) => {
 		const opt = document.createElement('option');
 		opt.value = String(i);
-		opt.textContent = p.name || p.ip;   // textContent: no markup interpretation
+		opt.textContent = p.name || p.ip;
 		picker.appendChild(opt);
 	});
 	const hashIdx = parseInt(location.hash.slice(1), 10);
@@ -59,7 +59,7 @@ async function tick() {
 	if (res && res.ok) {
 		frame.src = res.dataUrl; frame.style.display = "block";
 		placeholder.style.display = "none";
-		errors = 0; backoff = 0; nextBootAt = 0;     // healthy: reset recovery
+		errors = 0; backoff = 0; nextBootAt = 0;
 		setStatus("live · " + ip, "ok");
 	} else {
 		errors++;

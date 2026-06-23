@@ -50,7 +50,6 @@ document.getElementById('add').addEventListener('click', async () => {
 	const ip = normalizeIp(ipEl.value);
 	if (!ip) { setMsg("Enter an IP.", "err"); return; }
 
-	// FIRST thing, no await before it — request both schemes.
 	let granted;
 	try {
 		granted = await browser.permissions.request({
@@ -62,10 +61,9 @@ document.getElementById('add').addEventListener('click', async () => {
 	}
 	if (!granted) {
 		setMsg("Permission denied for " + ip + " — can't access it without granting access.", "err");
-		return; // do NOT save a printer we can't reach
+		return;
 	}
 
-	// Only now do async work + save.
 	const printers = await getPrinters();
 	if (printers.some(p => p.ip === ip)) { setMsg("That IP is already added.", "err"); return; }
 	printers.push({ ip, name: nameEl.value.trim() });

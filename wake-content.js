@@ -1,14 +1,9 @@
-// Runs in the printer page's own origin. Everything here is same-origin,
-// so the WebSocket carries the real Origin and Moonraker accepts the upgrade.
-
 (function () {
-	// Avoid double-injection if the script runs more than once in a frame.
 	if (window.__u1WakeInstalled) return;
 	window.__u1WakeInstalled = true;
 
 	async function wake() {
 		try {
-			// Same-origin relative fetch — page context, real Origin.
 			const r = await fetch('/access/oneshot_token?t=' + Date.now(), { cache: 'no-store' });
 			let token;
 			const ct = r.headers.get('content-type') || '';
@@ -50,11 +45,9 @@
 		}
 	}
 
-	// Wake immediately on load, then on an interval while this frame lives.
 	wake();
 	setInterval(wake, 5000);
 
-	// Allow the background to trigger an extra wake on demand.
 	browser.runtime.onMessage.addListener((msg) => {
 		if (msg && msg.type === 'doWake') wake();
 	});
