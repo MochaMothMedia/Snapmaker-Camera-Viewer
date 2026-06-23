@@ -35,6 +35,10 @@ On this page, enter the name for your printer and its IP address. Click 'Add'.
 
 ![an image depicting the settings page with the 2 text fields filled in. Left field shows "Snapmaker U1" and the right field shows "192.168.1.100".](resources/image1.png)
 
+Firefox will ask you to approve the plugin accessing that IP's site data. Each machine you add will request additional permissions. This is to silo the permissions to just the IPs you want to add rather than allowing them to access everything on your network.
+
+![A popover box requesting the user to approve the plugin to access the IP that they provided in the box.](resources/image6.png)
+
 Once added, the printer will show in the list. Add as many printers as you need. Once ready, you can open the Overview page by clicking on "Open Overview".
 
 ![The same image as above, however a new row shows below the input fields with the detailis "Snapmaker U1" and the IP of the printer in the box.](resources/image2.png)
