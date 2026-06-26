@@ -26,9 +26,7 @@ I made this in a single afternoon because I didn't want to install some 3rd part
 ---
 
 ## Installation
-You should be able to install from the Firefox store.
-
---- Pending Review ---
+You should be able to install from the [Firefox store](https://addons.mozilla.org/en-US/firefox/addon/snapmaker-u1-camera-viewer/).
 
 ## Setup and Use
 To open the dashboard interface, click on the extension icon. For your first-time, you will be presented with the Settings page where you can add your printers.
